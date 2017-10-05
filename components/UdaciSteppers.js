@@ -11,7 +11,7 @@ export default function UdaciSteppers ({ max, unit, step, value, onIncrement, on
         ? <View style={{ flexDirection: 'row' }}>
             <TouchableOpacity
               style={[styles.iosButton, { borderTopRightRadius: 0, borderBottomRightRadius: 0 }]}
-              Press={onDecrement}
+              onPress={onDecrement}
             >
               <Entypo name="minus" size={30} color={purple}/>
             </TouchableOpacity>
@@ -26,7 +26,7 @@ export default function UdaciSteppers ({ max, unit, step, value, onIncrement, on
         : <View style={{ flexDirection: 'row' }}>
             <TouchableOpacity
               style={[styles.androidButton, { borderTopRightRadius: 0, borderBottomRightRadius: 0 }]}
-              Press={onDecrement}
+              onPress={onDecrement}
             >
               <FontAwesome name="minus" size={30} color={white}/>
             </TouchableOpacity>
