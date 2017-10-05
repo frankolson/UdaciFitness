@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import UdaciFitnessCalendar from 'udacifitness-calendar';
 
 import DateHeader from './DateHeader';
+import MetricCard from './MetricCard';
 import { receiveEntries, addEntry } from '../actions';
 import { white } from '../utils/colors';
 import { timeToString, getDailyReminderValue } from '../utils/helpers';
@@ -34,7 +35,7 @@ class History extends Component {
             </Text>
           </View>
         : <TouchableOpacity onPress={() => console.log('Pressed')}>
-            <Text>{JSON.stringify(metrics)}</Text>
+            <MetricCard metrics={metrics} date={formattedDate} />
           </TouchableOpacity>
       }
     </View>
