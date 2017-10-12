@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 
 import DateHeader from './DateHeader';
 import UdaciSlider from './UdaciSlider';
@@ -78,7 +79,7 @@ class AddEntry extends Component {
       eat: 0,
     }))
 
-    // Navigate to home
+    this.toHome();
 
     submitEntry({ key, entry });
 
@@ -92,9 +93,15 @@ class AddEntry extends Component {
       [key]: getDailyReminderValue(),
     }));
 
-    // Navigate to home
+    this.toHome();
 
     removeEntry(key);
+  }
+
+  toHome = () => {
+    this.props.navigation.dispatch(NavigationActions.back({
+      key: 'AddEntry',
+    }))
   }
 
   render() {
