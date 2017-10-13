@@ -10,7 +10,13 @@ import UdaciSteppers from './UdaciSteppers';
 import TextButton from './TextButton';
 import { submitEntry, removeEntry } from '../utils/api';
 import { addEntry } from '../actions';
-import { getMetricMetaInfo, timeToString, getDailyReminderValue } from '../utils/helpers';
+import {
+  getMetricMetaInfo,
+  timeToString,
+  getDailyReminderValue,
+  clearLocalNotifications,
+  setLocalNotification,
+} from '../utils/helpers';
 import { white, purple } from '../utils/colors';
 
 function SubmitBtn ({ onPress }) {
@@ -83,7 +89,8 @@ class AddEntry extends Component {
 
     submitEntry({ key, entry });
 
-    // Clear local notification
+    clearLocalNotifications()
+      .then(setLocalNotification())
   }
 
   reset = () => {

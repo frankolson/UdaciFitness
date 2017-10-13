@@ -12,6 +12,7 @@ import Live from './components/Live';
 import History from './components/History';
 import reducer from './reducers';
 import { purple, white } from './utils/colors';
+import { setLocalNotification } from './utils/helpers';
 
 function UdacityStatusBar ({ backgroundColor, ...props }) {
   return (
@@ -79,6 +80,10 @@ const MainNavigator = StackNavigator({
 });
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
+
   render() {
     return (
       <Provider store={createStore(reducer)}>
